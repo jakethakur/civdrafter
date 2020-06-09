@@ -1,0 +1,12 @@
+/* fonts */
+@font-face {font-family: Penumbra; src: url('Penumbra-HalfSerif.ttf');} 
+@font-face {font-family: Open Sans; src: url('OpenSans-Regular.ttf');} 
+
+h1, h2, h3 {
+	font-family: Penumbra;
+}
+
+body {
+	font-family: Open Sans;
+	margin-left: 20px;
+}

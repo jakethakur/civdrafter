@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Civ VI Drafter</title>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="style.css">
+
+<!-- favicon -->
+<link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+
+</head>
+
+<body>
+
+<h1>Civ VI Drafter</h1>
+
+<label for="numberOfPlayers">Number of players:</label>
+<select name="numberOfPlayers" id="numberOfPlayers">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+  <option value="6">6</option>
+  <option value="7">7</option>
+  <option value="8">8</option>
+  <option value="9">9</option>
+  <option value="10">10</option>
+  <option value="11">11</option>
+  <option value="12">12</option>
+</select><br><br>
+
+<label for="numberOfLeaders">Number of leaders per player:</label>
+<select name="numberOfLeaders" id="numberOfLeaders">
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+  <option value="5">5</option>
+</select><br><br>
+
+<h2>Game Type</h2>
+
+<input type="radio" id="baseGameRadio" name="paywall" value="none" checked>
+<label for="baseGame">Base Game</label><br>
+<input type="radio" id="riseAndFallRadio" name="paywall" value="Rise and Fall">
+<label for="riseAndFall">Rise and Fall</label><br>
+<input type="radio" id="gatheringStormRadio" name="paywall" value="Gathering Storm">
+<label for="gatheringStorm">Gathering Storm</label><br><br>
+
+<!--<h3>Settings</h3>
+
+<input type="checkbox" id="duplicateCivs" name="duplicateCivs" value="duplicateCivs">
+<label for="duplicateCivs"> Allow duplicate civs</label><br>
+
+<input type="checkbox" id="duplicateLeaders" name="duplicateLeaders" value="duplicateLeaders">
+<label for="duplicateLeaders"> Allow duplicate leaders</label><br><br>--><br>
+
+<button type="button" onclick="playersSelected()">Confirm :)</button><br><br>
+
+<ul id="playerList"></ul>
+
+<button type="button" id="draftButton" onclick="draft()" hidden>Draft!</button><br><br>
+
+<script src="./main.js"></script>
+
+</body>
+</html>
