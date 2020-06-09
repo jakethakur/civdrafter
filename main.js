@@ -26,8 +26,8 @@ let leaders = [
 	{name: "Hojo Tokimune", civilization: "Japanese", paywall: "none", expansion: "none", banned: false},
 	{name: "Jayavarman VII", civilization: "Khmer", paywall: "Base Game DLC", expansion: "none", banned: false},
 	{name: "Mvemba a Nzinga", civilization: "Kongolese", paywall: "none", expansion: "none", banned: false},
-	{name: "Seondeok", civilization: "Korean", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: true},
-	{name: "Alexander", civilization: "Macedonian", paywall: "Base Game DLC", expansion: "none", banned: true},
+	{name: "Seondeok", civilization: "Korean", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false},
+	{name: "Alexander", civilization: "Macedonian", paywall: "Base Game DLC", expansion: "none", banned: false},
 	{name: "Mansa Musa", civilization: "Mali", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false},
 	{name: "Kupe", civilization: "Māori", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false},
 	{name: "Lautaro", civilization: "Mapuche", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false},
@@ -39,15 +39,71 @@ let leaders = [
 	{name: "Cyrus", civilization: "Persian", paywall: "Base Game DLC", expansion: "none", banned: false},
 	{name: "Dido", civilization: "Phoenician", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false},
 	{name: "Jadwiga", civilization: "Polish", paywall: "Base Game DLC", expansion: "none", banned: false},
-	{name: "Trajan", civilization: "Roman", paywall: "none", expansion: "none", banned: true},
+	{name: "Trajan", civilization: "Roman", paywall: "none", expansion: "none", banned: false},
 	{name: "Peter", civilization: "Russian", paywall: "none", expansion: "none", banned: false},
 	{name: "Robert the Bruce", civilization: "Scottish", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false},
-	{name: "Tomyris", civilization: "Scythian", paywall: "none", expansion: "none", banned: true},
+	{name: "Tomyris", civilization: "Scythian", paywall: "none", expansion: "none", banned: false},
 	{name: "Philip II", civilization: "Spanish", paywall: "none", expansion: "none", banned: false},
-	{name: "Gilgamesh", civilization: "Sumerian", paywall: "none", expansion: "none", banned: true},
+	{name: "Gilgamesh", civilization: "Sumerian", paywall: "none", expansion: "none", banned: false},
 	{name: "Kristina", civilization: "Swedish", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false},
 	{name: "Shaka", civilization: "Zulu", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false},
 ];
+
+// returns value of selected expansion (game type) radio button
+function selectedExpansion() {
+	// find checked expansion for game
+	let expansion = "none";
+	if (document.getElementById("riseAndFallRadio").checked) {
+		expansion = "Rise and Fall";
+	}
+	else if (document.getElementById("gatheringStormRadio").checked) {
+		expansion = "Gathering Storm";
+	}
+	return expansion;
+}
+
+// generate banned leaders checkboxes depending on which gamemode is selected
+function updateBannedLeaders() {
+	let bannedLeadersEl = document.getElementById("bannedLeadersList");
+	// reset contents
+	bannedLeadersEl.innerHTML = "";
+	// find allowed leaders from expansion
+	let expansion = selectedExpansion();
+	// repopulate
+	for (let i = 0; i < leaders.length; i++) {
+		if (leaders[i].expansion == "Rise and Fall" && expansion == "none") {
+			// leader not allowed in mode so has no checkbox
+		}
+		else if (leaders[i].expansion == "Gathering Storm" && (expansion == "none" || expansion == "Rise and Fall")) {
+			// leader not allowed in mode so has no checkbox
+		}
+		else {
+			// leader allowed
+			let leaderString = leaders[i].name+" ("+leaders[i].civilization+")"; // string used to identify leader
+			// checkbox
+			let checkboxNode = document.createElement("input");
+			checkboxNode.type = "checkbox";
+			checkboxNode.id = "banCheckbox"+i;
+			checkboxNode.className = "banCheckbox";
+			checkboxNode.value = leaderString;
+			bannedLeadersEl.appendChild(checkboxNode);
+			// label
+			let labelNode = document.createElement("label");
+			labelNode.htmlFor = "banCheckbox"+i;
+			labelNode.innerText = leaderString;
+			bannedLeadersEl.appendChild(labelNode);  
+			// br
+			let breakNode = document.createElement("br");
+			bannedLeadersEl.appendChild(breakNode);
+			// check if it should be banned by default
+			if (leaders[i].banned) {
+				document.getElementById("banCheckbox"+i).checked = true;
+			}
+		}
+	}
+}
+// call on page init
+updateBannedLeaders();
 
 // number of players and number of leaders has been chosen
 function playersSelected() {
@@ -70,13 +126,10 @@ function draft() {
 	let offeredLeaders = []; // list of leaders that have already been offered
 	
 	// find checked expansion for game
-	let expansion = "none";
-	if (document.getElementById("riseAndFallRadio").checked) {
-		expansion = "Rise and Fall";
-	}
-	else if (document.getElementById("gatheringStormRadio").checked) {
-		expansion = "Gathering Storm";
-	}
+	let expansion = selectedExpansion();
+	
+	// get banned leader checkboxes, as an array (not an HTMLCollection)
+	let bannedLeaderEls = [...document.getElementsByClassName("banCheckbox")];
 	
 	for (let player = 1; player <= parseInt(document.getElementById("numberOfPlayers").value); player++) {
 		// find dlc prefernce for player
@@ -105,7 +158,7 @@ function draft() {
 				}
 				
 				// check if leader is banned
-				if (leader.banned) {
+				if (bannedLeaderEls.findIndex(leaderCheckbox => leaderCheckbox.value == leader.name+" ("+leader.civilization+")" && leaderCheckbox.checked) != -1) {
 					return false;
 				}
 				

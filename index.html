@@ -13,6 +13,7 @@
 
 <body>
 
+<div class="column" id="column1">
 <h1>Civ VI Drafter</h1>
 
 <label for="numberOfPlayers">Number of players:</label>
@@ -42,14 +43,14 @@
 
 <h2>Game Type</h2>
 
-<input type="radio" id="baseGameRadio" name="paywall" value="none" checked>
+<input type="radio" id="baseGameRadio" name="paywall" value="none" onclick="updateBannedLeaders()" checked>
 <label for="baseGame">Base Game</label><br>
-<input type="radio" id="riseAndFallRadio" name="paywall" value="Rise and Fall">
+<input type="radio" id="riseAndFallRadio" name="paywall" value="Rise and Fall" onclick="updateBannedLeaders()">
 <label for="riseAndFall">Rise and Fall</label><br>
-<input type="radio" id="gatheringStormRadio" name="paywall" value="Gathering Storm">
+<input type="radio" id="gatheringStormRadio" name="paywall" value="Gathering Storm" onclick="updateBannedLeaders()">
 <label for="gatheringStorm">Gathering Storm</label><br><br>
 
-<!--<h3>Settings</h3>
+<!--<h2>Settings</h2>
 
 <input type="checkbox" id="duplicateCivs" name="duplicateCivs" value="duplicateCivs">
 <label for="duplicateCivs"> Allow duplicate civs</label><br>
@@ -62,6 +63,13 @@
 <ul id="playerList"></ul>
 
 <button type="button" id="draftButton" onclick="draft()" hidden>Draft!</button><br><br>
+</div>
+
+<div class="column" id="column2">
+<h2>Banned Leaders</h2>
+<div id="bannedLeadersList">
+</div>
+</div>
 
 <script src="./main.js"></script>
 
