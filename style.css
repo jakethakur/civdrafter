@@ -21,3 +21,10 @@ body {
 	padding-top: 50px;
 	padding-bottom: 20px;
 }
+
+.leaderIcon {
+	vertical-align: middle;
+	padding-right: 6px;
+	padding-left: 4px;
+	height: 25px;
+}
