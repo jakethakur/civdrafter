@@ -1,8 +1,8 @@
 let leaders = [
 	{name: "Alexander", civilization: "Macedonian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Alexander.png"},
 	{name: "Amanitore", civilization: "Nubian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Amanitore.png"},
-	{name: "Catherine de Medici", civilization: "French", paywall: "none", expansion: "none", banned: false, img:"Catherine.png"},
-	//{name: "Catherine de Medici (Magnificence)", civilization: "French", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Catherine.png"},
+	{name: "Catherine de Medici (Black Queen)", civilization: "French", paywall: "none", expansion: "none", banned: false, img:"Catherine.png"},
+	{name: "Catherine de Medici (Magnificence)", civilization: "French", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Catherine.png"},
 	{name: "Chandragupta", civilization: "Indian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Chandragupta.png"},
 	{name: "Cleopatra", civilization: "Egyptian", paywall: "none", expansion: "none", banned: false, img:"Cleopatra.png"},
 	{name: "Cyrus", civilization: "Persian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Cyrus.png"},
@@ -26,7 +26,7 @@ let leaders = [
 	{name: "Lautaro", civilization: "Mapuche", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Lautaro.png"},
 	{name: "Mansa Musa", civilization: "Mali", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Mansa_Musa.png"},
 	{name: "Matthias Corvinus", civilization: "Hungarian", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Matthias_Corvinus.png"},
-	//{name: "Menelik II", civilization: "Ethiopian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Placeholder.png"},
+	{name: "Menelik II", civilization: "Ethiopian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Placeholder.png"},
 	{name: "Montezuma", civilization: "Aztec", paywall: "none", expansion: "none", banned: false, img:"Montezuma.png"},
 	{name: "Mvemba a Nzinga", civilization: "Kongolese", paywall: "none", expansion: "none", banned: false, img:"Mvemba.png"},
 	{name: "Pachacuti", civilization: "Incan", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Pachacuti.png"},
@@ -43,8 +43,8 @@ let leaders = [
 	{name: "Simón Bolívar", civilization: "Gran Colombian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Simón_Bolívar.png"},
 	{name: "Suleiman", civilization: "Ottoman", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Suleiman.png"},
 	{name: "Tamar", civilization: "Georgian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Tamar.png"},
-	{name: "Teddy Roosevelt", civilization: "American", paywall: "none", expansion: "none", banned: false, img:"Teddy.png"},
-	//{name: "Teddy Roosevelt (Rough Rider)", civilization: "American", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Teddy.png"},
+	{name: "Teddy Roosevelt (Bull Moose)", civilization: "American", paywall: "none", expansion: "none", banned: false, img:"Teddy.png"},
+	{name: "Teddy Roosevelt (Rough Rider)", civilization: "American", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Teddy.png"},
 	{name: "Tomyris", civilization: "Scythian", paywall: "none", expansion: "none", banned: false, img:"Tomyris.png"},
 	{name: "Trajan", civilization: "Roman", paywall: "none", expansion: "none", banned: false, img:"Trajan.png"},
 	{name: "Victoria", civilization: "English", paywall: "none", expansion: "none", banned: false, img:"Victoria.png"},
@@ -82,7 +82,7 @@ function updateBannedLeaders() {
 		}
 		else {
 			// leader allowed
-			let leaderString = leaders[i].name+" ("+leaders[i].civilization+")"; // string used to identify leader
+			let leaderString = leaders[i].name+" ["+leaders[i].civilization+"]"; // string used to identify leader
 			// checkbox
 			let checkboxNode = document.createElement("input");
 			checkboxNode.type = "checkbox";
@@ -163,7 +163,7 @@ function draft() {
 				}
 				
 				// check if leader is banned
-				if (bannedLeaderEls.findIndex(leaderCheckbox => leaderCheckbox.value == leader.name+" ("+leader.civilization+")" && leaderCheckbox.checked) != -1) {
+				if (bannedLeaderEls.findIndex(leaderCheckbox => leaderCheckbox.value == leader.name+" ["+leader.civilization+"]" && leaderCheckbox.checked) != -1) {
 					return false;
 				}
 				
@@ -184,7 +184,7 @@ function draft() {
 			else {
 				offeredLeaders.push(draftedLeader);
 				// show leader to player
-				document.getElementById("leadersPlayer"+player).innerHTML += "<img src='icons/"+draftedLeader.img+"' class='leaderIcon'>" + draftedLeader.name + " (" + draftedLeader.civilization + ")<br>";
+				document.getElementById("leadersPlayer"+player).innerHTML += "<img src='icons/"+draftedLeader.img+"' class='leaderIcon'>" + draftedLeader.name + " [" + draftedLeader.civilization + "]<br>";
 			}
 		}
 	}
