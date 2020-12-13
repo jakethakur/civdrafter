@@ -17,6 +17,7 @@ let leaders = [
 	{name: "Gilgamesh", civilization: "Sumerian", paywall: "none", expansion: "none", banned: false, img:"Gilgamesh.png"},
 	{name: "Gitarja", civilization: "Indonesian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Gitarja.png"},
 	{name: "Gorgo", civilization: "Greek", paywall: "none", expansion: "none", banned: false, img:"Gorgo.png"},
+	{name: "Hammurabi", civilization: "Babylonian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Hammurabi.png"},
 	{name: "Harald Hardrada", civilization: "Norwegian", paywall: "none", expansion: "none", banned: false, img:"Harald.png"},
 	{name: "Hojo Tokimune", civilization: "Japanese", paywall: "none", expansion: "none", banned: false, img:"Hojo.png"},
 	{name: "Jadwiga", civilization: "Polish", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Jadwiga.png"},
