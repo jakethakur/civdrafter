@@ -172,13 +172,13 @@ function draft() {
 				}
 				
 				// check leader paywall
-				if ((leader.paywall == "Base Game DLC" || leader.paywall == "Frontier Pass" || leader.paywall == "Leader Pass") && playerPaywall == "none") {
+				if (leader.paywall == "Base Game DLC" && playerPaywall == "none") {
 					return false;
 				}
-				if (leader.paywall == "Frontier Pass" && playerPaywall == "Base Game DLC") {
+				if (leader.paywall == "Frontier Pass" && (playerPaywall == "none" || playerPaywall == "Base Game DLC")) {
 					return false;
 				}
-				if (leader.paywall == "Leader Pass" && playerPaywall == "Frontier Pass") {
+				if (leader.paywall == "Leader Pass" && playerPaywall != "Leader Pass") {
 					return false;
 				}
 				
