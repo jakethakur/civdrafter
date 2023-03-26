@@ -1,58 +1,78 @@
 let leaders = [
-	{name: "Alexander", civilization: "Macedonian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Alexander.png"},
-	{name: "Amanitore", civilization: "Nubian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Amanitore.png"},
-	{name: "Ambiorix", civilization: "Gallic", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Ambiorix.png"},
-	{name: "Basil II", civilization: "Byzantine", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Basil_II.png"},
-	{name: "Catherine de Medici (Black Queen)", civilization: "French", paywall: "none", expansion: "none", banned: false, img:"Catherine.png"},
-	{name: "Catherine de Medici (Magnificence)", civilization: "French", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Catherine_Magnificence.png"},
-	{name: "Chandragupta", civilization: "Indian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Chandragupta.png"},
-	{name: "Cleopatra", civilization: "Egyptian", paywall: "none", expansion: "none", banned: false, img:"Cleopatra.png"},
-	{name: "Cyrus", civilization: "Persian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Cyrus.png"},
-	{name: "Dido", civilization: "Phoenician", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Dido.png"},
-	{name: "Eleanor of Aquitaine", civilization: "English", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Eleanor_English.png"},
-	{name: "Eleanor of Aquitaine", civilization: "French", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Eleanor_French.png"},
-	{name: "Frederick Barbarossa", civilization: "German", paywall: "none", expansion: "none", banned: false, img:"Frederick.png"},
-	{name: "Gandhi", civilization: "Indian", paywall: "none", expansion: "none", banned: false, img:"Gandhi.png"},
-	{name: "Genghis Khan", civilization: "Mongolian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Genghis_Khan.png"},
-	{name: "Gilgamesh", civilization: "Sumerian", paywall: "none", expansion: "none", banned: false, img:"Gilgamesh.png"},
-	{name: "Gitarja", civilization: "Indonesian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Gitarja.png"},
-	{name: "Gorgo", civilization: "Greek", paywall: "none", expansion: "none", banned: false, img:"Gorgo.png"},
-	{name: "Hammurabi", civilization: "Babylonian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Hammurabi.png"},
-	{name: "Harald Hardrada", civilization: "Norwegian", paywall: "none", expansion: "none", banned: false, img:"Harald.png"},
-	{name: "Hojo Tokimune", civilization: "Japanese", paywall: "none", expansion: "none", banned: false, img:"Hojo.png"},
-	{name: "Jadwiga", civilization: "Polish", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Jadwiga.png"},
-	{name: "Jayavarman VII", civilization: "Khmer", paywall: "Base Game DLC", expansion: "none", banned: false, img:"Jayavarman_VII.png"},
-	{name: "John Curtin", civilization: "Australian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"John_Curtin.png"},
-	{name: "Kristina", civilization: "Swedish", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Kristina.png"},
-	{name: "Kupe", civilization: "Māori", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Kupe.png"},
-	{name: "Lady Six Sky", civilization: "Mayan", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Lady_Six_Sky.png"},
-	{name: "Lautaro", civilization: "Mapuche", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Lautaro.png"},
-	{name: "Mansa Musa", civilization: "Mali", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Mansa_Musa.png"},
-	{name: "Matthias Corvinus", civilization: "Hungarian", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Matthias_Corvinus.png"},
-	{name: "Menelik II", civilization: "Ethiopian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Menelik_II.png"},
-	{name: "Montezuma", civilization: "Aztec", paywall: "none", expansion: "none", banned: false, img:"Montezuma.png"},
-	{name: "Mvemba a Nzinga", civilization: "Kongolese", paywall: "none", expansion: "none", banned: false, img:"Mvemba.png"},
-	{name: "Pachacuti", civilization: "Incan", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Pachacuti.png"},
-	{name: "Pedro II", civilization: "Brazillian", paywall: "none", expansion: "none", banned: false, img:"Pedro_II.png"},
-	{name: "Pericles", civilization: "Greek", paywall: "none", expansion: "none", banned: false, img:"Pericles.png"},
-	{name: "Peter", civilization: "Russian", paywall: "none", expansion: "none", banned: false, img:"Peter.png"},
-	{name: "Philip II", civilization: "Spanish", paywall: "none", expansion: "none", banned: false, img:"Philip_II.png"},
-	{name: "Poundmaker", civilization: "Cree", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Poundmaker.png"},
-	{name: "Qin Shi Huang", civilization: "Chinese", paywall: "none", expansion: "none", banned: false, img:"Qin_Shi_Huang.png"},
-	{name: "Robert the Bruce", civilization: "Scottish", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Robert_the_Bruce.png"},
-	{name: "Saladin", civilization: "Arabian", paywall: "none", expansion: "none", banned: false, img:"Saladin.png"},
-	{name: "Seondeok", civilization: "Korean", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Seondeok.png"},
-	{name: "Shaka", civilization: "Zulu", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Shaka.png"},
-	{name: "Simón Bolívar", civilization: "Gran Colombian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Simón_Bolívar.png"},
-	{name: "Suleiman", civilization: "Ottoman", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Suleiman.png"},
-	{name: "Tamar", civilization: "Georgian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Tamar.png"},
-	{name: "Teddy Roosevelt (Bull Moose)", civilization: "American", paywall: "none", expansion: "none", banned: false, img:"Teddy.png"},
-	{name: "Teddy Roosevelt (Rough Rider)", civilization: "American", paywall: "Frontier Pass", expansion: "none", banned: false, img:"Teddy_Rough_Rider.png"},
-	{name: "Tomyris", civilization: "Scythian", paywall: "none", expansion: "none", banned: false, img:"Tomyris.png"},
-	{name: "Trajan", civilization: "Roman", paywall: "none", expansion: "none", banned: false, img:"Trajan.png"},
-	{name: "Victoria", civilization: "English", paywall: "none", expansion: "none", banned: false, img:"Victoria.png"},
-	{name: "Wilfrid Laurier", civilization: "Canadian", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"Wilfrid.png"},
-	{name: "Wilhelmina", civilization: "Dutch", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"Wilhelmina.png"},
+	{name: "Abraham Lincoln", civilization: "American", paywall: "Leader Pass", expansion: "none", banned: false, img:"9/97/Abraham_Lincoln_(Civ6).png"},
+	{name: "Alexander", civilization: "Macedonian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"3/33/Alexander_(Civ6).png"},
+	{name: "Amanitore", civilization: "Nubian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"b/b8/Amanitore_(Civ6).png"},
+	{name: "Ambiorix", civilization: "Gallic", paywall: "Frontier Pass", expansion: "none", banned: false, img:"8/8c/Ambiorix_(Civ6).png"},
+	{name: "Bà Triệu", civilization: "Vietnamese", paywall: "Frontier Pass", expansion: "none", banned: false, img:"9/92/Bà_Triệu_(Civ6).png"},
+	{name: "Basil II", civilization: "Byzantine", paywall: "Frontier Pass", expansion: "none", banned: false, img:"9/96/Basil_II_(Civ6).png"},
+	{name: "Catherine de Medici (Black Queen)", civilization: "French", paywall: "none", expansion: "none", banned: false, img:"0/06/Catherine_de_Medici_(Civ6).png"},
+	{name: "Catherine de Medici (Magnificence)", civilization: "French", paywall: "Frontier Pass", expansion: "none", banned: false, img:"e/e2/Catherine_de_Medici_%28Magnificence%29_%28Civ6%29.png"},
+	{name: "Chandragupta", civilization: "Indian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"e/e2/Chandragupta_(Civ6).png"},
+	{name: "Cleopatra", civilization: "Egyptian", paywall: "none", expansion: "none", banned: false, img:"9/98/Cleopatra_(Civ6).png"},
+	{name: "Cleopatra (Ptolemaic)", civilization: "Egyptian", paywall: "Leader Pass", expansion: "none", banned: false, img:"0/0f/Cleopatra_(Ptolemaic)_(Civ6).png"},
+	{name: "Cyrus", civilization: "Persian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"1/14/Cyrus_(Civ6).png"},
+	{name: "Dido", civilization: "Phoenician", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"c/cb/Dido_(Civ6).png"},
+	{name: "Eleanor of Aquitaine", civilization: "English", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"2/2f/Eleanor_of_Aquitaine_(English)_(Civ6).png"},
+	{name: "Eleanor of Aquitaine", civilization: "French", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"7/7a/Eleanor_of_Aquitaine_%28French%29_%28Civ6%29.png"},
+	{name: "Frederick Barbarossa", civilization: "German", paywall: "none", expansion: "none", banned: false, img:"4/44/Frederick_Barbarossa_%28Civ6%29.png"},
+	{name: "Gandhi", civilization: "Indian", paywall: "none", expansion: "none", banned: false, img:"2/29/Gandhi_%28Civ6%29.png"},
+	{name: "Genghis Khan", civilization: "Mongolian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"5/53/Genghis_Khan_%28Civ6%29.png"},
+	{name: "Gilgamesh", civilization: "Sumerian", paywall: "none", expansion: "none", banned: false, img:"f/ff/Gilgamesh_%28Civ6%29.png"},
+	{name: "Gitarja", civilization: "Indonesian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"e/e8/Gitarja_%28Civ6%29.png"},
+	{name: "Gorgo", civilization: "Greek", paywall: "none", expansion: "none", banned: false, img:"6/68/Gorgo_%28Civ6%29.png"},
+	{name: "Hammurabi", civilization: "Babylonian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"9/94/Hammurabi_%28Civ6%29.png"},
+	{name: "Harald Hardrada", civilization: "Norwegian", paywall: "none", expansion: "none", banned: false, img:"7/77/Harald_Hardrada_%28Civ6%29.png"},
+	{name: "Hojo Tokimune", civilization: "Japanese", paywall: "none", expansion: "none", banned: false, img:"0/07/Hojo_Tokimune_%28Civ6%29.png"},
+	{name: "Jadwiga", civilization: "Polish", paywall: "Base Game DLC", expansion: "none", banned: false, img:"f/f6/Jadwiga_%28Civ6%29.png"},
+	{name: "Jayavarman VII", civilization: "Khmer", paywall: "Base Game DLC", expansion: "none", banned: false, img:"7/77/Jayavarman_VII_%28Civ6%29.png"},
+	{name: "João III", civilization: "Portuguese", paywall: "Frontier Pass", expansion: "none", banned: false, img:"3/3e/João_III_%28Civ6%29.png"},
+	{name: "John Curtin", civilization: "Australian", paywall: "Base Game DLC", expansion: "none", banned: false, img:"b/b9/John_Curtin_%28Civ6%29.png"},
+	{name: "Julius Caesar", civilization: "Roman", paywall: "none", expansion: "none", banned: false, img:"4/4c/Julius_Caesar_%28Civ6%29.png"},
+	{name: "Kristina", civilization: "Swedish", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"3/32/Kristina_%28Civ6%29.png"},
+	{name: "Kublai Khan", civilization: "Chinese", paywall: "Frotier Pass", expansion: "none", banned: false, img:"5/54/Kublai_Khan_%28Chinese%29_%28Civ6%29.png"},
+	{name: "Kublai Khan", civilization: "Mongolian", paywall: "Frotier Pass", expansion: "none", banned: false, img:"c/cb/Kublai_Khan_%28Mongolian%29_%28Civ6%29.png"},
+	{name: "Kupe", civilization: "Māori", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"4/42/Kupe_%28Civ6%29.png"},
+	{name: "Lady Six Sky", civilization: "Mayan", paywall: "Frontier Pass", expansion: "none", banned: false, img:"7/77/Lady_Six_Sky_%28Civ6%29.png"},
+	{name: "Lautaro", civilization: "Mapuche", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"e/e0/Lautaro_%28Civ6%29.png"},
+	{name: "Ludwig II", civilization: "German", paywall: "Leader Pass", expansion: "none", banned: false, img:"b/b5/Ludwig_II_(Civ6).png"},
+	{name: "Mansa Musa", civilization: "Mali", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"7/70/Mansa_Musa_%28Civ6%29.png"},
+	{name: "Matthias Corvinus", civilization: "Hungarian", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"2/25/Matthias_Corvinus_%28Civ6%29.png"},
+	{name: "Menelik II", civilization: "Ethiopian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"9/97/Menelik_II_%28Civ6%29.png"},
+	{name: "Montezuma", civilization: "Aztec", paywall: "none", expansion: "none", banned: false, img:"1/1e/Montezuma_%28Civ6%29.png"},
+	{name: "Mvemba a Nzinga", civilization: "Kongolese", paywall: "none", expansion: "none", banned: false, img:"6/68/Mvemba_a_Nzinga_%28Civ6%29.png"},
+	{name: "Nader Shah", civilization: "Persian", paywall: "Leader Pass", expansion: "none", banned: false, img:"e/ec/Nader_Shah_%28Civ6%29.png"},
+	{name: "Nzinga Mbande", civilization: "Kongolese", paywall: "Leader Pass", expansion: "none", banned: false, img:"6/6a/Nzinga_Mbande_%28Civ6%29.png"},
+	{name: "Pachacuti", civilization: "Incan", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"f/f2/Pachacuti_%28Civ6%29.png"},
+	{name: "Pedro II", civilization: "Brazillian", paywall: "none", expansion: "none", banned: false, img:"7/7c/Pedro_II_%28Civ6%29.png"},
+	{name: "Pericles", civilization: "Greek", paywall: "none", expansion: "none", banned: false, img:"4/40/Pericles_%28Civ6%29.png"},
+	{name: "Peter", civilization: "Russian", paywall: "none", expansion: "none", banned: false, img:"8/80/Peter_%28Civ6%29.png"},
+	{name: "Philip II", civilization: "Spanish", paywall: "none", expansion: "none", banned: false, img:"5/59/Philip_II_%28Civ6%29.png"},
+	{name: "Poundmaker", civilization: "Cree", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"3/3b/Poundmaker_%28Civ6%29.png"},
+	{name: "Qin Shi Huang (Mandate of Heaven)", civilization: "Chinese", paywall: "none", expansion: "none", banned: false, img:"c/c3/Qin_Shi_Huang_%28Civ6%29.png"},
+	{name: "Qin Shi Huang (Unifier)", civilization: "Chinese", paywall: "Leader Pass", expansion: "none", banned: false, img:"0/00/Qin_Shi_Huang_%28Unifier%29_%28Civ6%29.png"},
+	{name: "Ramses II", civilization: "Egyptian", paywall: "Leader Pass", expansion: "none", banned: false, img:"9/91/Ramses_II_(Civ6).png"},
+	{name: "Robert the Bruce", civilization: "Scottish", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"c/c4/Robert_the_Bruce_%28Civ6%29.png"},
+	{name: "Saladin (Sultan)", civilization: "Arabian", paywall: "Leader Pass", expansion: "none", banned: false, img:"8/82/Saladin_%28Sultan%29_%28Civ6%29.png"},
+	{name: "Saladin (Vizier)", civilization: "Arabian", paywall: "none", expansion: "none", banned: false, img:"5/57/Saladin_%28Civ6%29.png"},
+	{name: "Sejong", civilization: "Korean", paywall: "Leader Pass", expansion: "none", banned: false, img:"b/b8/Sejong_(Civ6).png"},
+	{name: "Seondeok", civilization: "Korean", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"9/9c/Seondeok_%28Civ6%29.png"},
+	{name: "Shaka", civilization: "Zulu", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"e/eb/Shaka_%28Civ6%29.png"},
+	{name: "Simón Bolívar", civilization: "Gran Colombian", paywall: "Frontier Pass", expansion: "none", banned: false, img:"9/9d/Simón_Bolívar_%28Civ6%29.png"},
+	{name: "Sundiata Keita", civilization: "Mali", paywall: "Frontier Pass", expansion: "none", banned: false, img:"5/56/Sundiata_Keita_(Civ6).png"},
+	{name: "Suleiman (Kanuni)", civilization: "Ottoman", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"8/85/Suleiman_%28Civ6%29.png"},
+	{name: "Suleiman (Muhtesem)", civilization: "Ottoman", paywall: "Leader Pass", expansion: "none", banned: false, img:"d/d0/Suleiman_%28Muhteşem%29_%28Civ6%29.png"},
+	{name: "Tamar", civilization: "Georgian", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"b/b0/Tamar_%28Civ6%29.png"},
+	{name: "Teddy Roosevelt (Bull Moose)", civilization: "American", paywall: "none", expansion: "none", banned: false, img:"7/70/Teddy_Roosevelt_%28Civ6%29.png"},
+	{name: "Teddy Roosevelt (Rough Rider)", civilization: "American", paywall: "Frontier Pass", expansion: "none", banned: false, img:"c/c3/Teddy_Roosevelt_%28Rough_Rider%29_%28Civ6%29.png"},
+	{name: "Theodora", civilization: "Byzantine", paywall: "Leader Pass", expansion: "none", banned: false, img:"1/18/Theodora_(Civ6).png"},
+	{name: "Tokugawa", civilization: "Japanese", paywall: "Leader Pass", expansion: "none", banned: false, img:"a/af/Tokugawa_%28Civ6%29.png"},
+	{name: "Tomyris", civilization: "Scythian", paywall: "none", expansion: "none", banned: false, img:"6/6a/Tomyris_%28Civ6%29.png"},
+	{name: "Trajan", civilization: "Roman", paywall: "none", expansion: "none", banned: false, img:"d/d5/Trajan_%28Civ6%29.png"},
+	{name: "Victoria", civilization: "English", paywall: "none", expansion: "none", banned: false, img:"5/53/Victoria_%28Civ6%29.png"},
+	{name: "Wilfrid Laurier", civilization: "Canadian", paywall: "Gathering Storm", expansion: "Gathering Storm", banned: false, img:"b/b0/Wilfrid_Laurier_%28Civ6%29.png"},
+	{name: "Wilhelmina", civilization: "Dutch", paywall: "Rise and Fall", expansion: "Rise and Fall", banned: false, img:"4/44/Wilhelmina_%28Civ6%29.png"},
+	{name: "Wu Zetian", civilization: "Chinese", paywall: "Leader Pass", expansion: "none", banned: false, img:"7/76/Wu_Zetian_%28Civ6%29.png"},
+	{name: "Yongle", civilization: "Chinese", paywall: "Leader Pass", expansion: "none", banned: false, img:"5/5a/Yongle_%28Civ6%29.png"},
 ];
 
 // returns value of selected expansion (game type) radio button
@@ -94,7 +114,7 @@ function updateBannedLeaders() {
 			checkboxNode.value = leaderString;
 			bannedLeadersEl.appendChild(checkboxNode);
 			// img
-			bannedLeadersEl.innerHTML+="<img src='icons/"+leaders[i].img+"' class='leaderIcon'>";
+			bannedLeadersEl.innerHTML+="<img src='https://static.wikia.nocookie.net/civilization/images/"+leaders[i].img+"' class='leaderIcon'>";
 			// label
 			let labelNode = document.createElement("label");
 			labelNode.htmlFor = "banCheckbox"+i;
@@ -120,7 +140,7 @@ function playersSelected() {
 	for (let i = 1; i <= parseInt(document.getElementById("numberOfPlayers").value); i++) {
 		playerListEl.innerHTML += "<li id='player"+i+"'>Player "+i;
 		// dlc select dropdown
-		playerListEl.innerHTML += "<select id='dlcPlayer"+i+"'><option value='none'>No DLC Leaders</option><option value='Base Game DLC'>Platinum Edition Leaders</option><option value='Frontier Pass'>Platinum Edition + Frontier Pass Leaders</option></select><br>"
+		playerListEl.innerHTML += "<select id='dlcPlayer"+i+"'><option value='none'>No DLC Leaders</option><option value='Base Game DLC'>Platinum Edition Leaders</option><option value='Frontier Pass'>Platinum Edition + Frontier Pass Leaders</option><option value='Leader Pass'>Platinum Edition + Frontier Pass Leaders + Leader Pass</option></select><br>"
 		// player leader holder
 		playerListEl.innerHTML += "<div id='leadersPlayer"+i+"'></div></li><br><br>";
 	}
@@ -158,10 +178,13 @@ function draft() {
 				}
 				
 				// check leader paywall
-				if ((leader.paywall == "Base Game DLC" || leader.paywall == "Frontier Pass") && playerPaywall == "none") {
+				if (leader.paywall == "Base Game DLC" && playerPaywall == "none") {
 					return false;
 				}
-				if (leader.paywall == "Frontier Pass" && playerPaywall == "Base Game DLC") {
+				if (leader.paywall == "Frontier Pass" && (playerPaywall == "none" || playerPaywall == "Base Game DLC")) {
+					return false;
+				}
+				if (leader.paywall == "Leader Pass" && playerPaywall != "Leader Pass") {
 					return false;
 				}
 				
@@ -187,7 +210,7 @@ function draft() {
 			else {
 				offeredLeaders.push(draftedLeader);
 				// show leader to player
-				document.getElementById("leadersPlayer"+player).innerHTML += "<img src='icons/"+draftedLeader.img+"' class='leaderIcon'>" + draftedLeader.name + " [" + draftedLeader.civilization + "]<br>";
+				document.getElementById("leadersPlayer"+player).innerHTML += "<img src='https://static.wikia.nocookie.net/civilization/images/"+draftedLeader.img+"' class='leaderIcon'>" + draftedLeader.name + " [" + draftedLeader.civilization + "]<br>";
 			}
 		}
 	}
@@ -198,4 +221,27 @@ function getRandomInt(min, max) {
     min = Math.ceil(min);
     max = Math.floor(max);
     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// On page load set the theme.
+(function() {
+  let onpageLoad = localStorage.getItem("theme") || "";
+  let element = document.body;
+  element.classList.add(onpageLoad);
+  document.getElementById("theme").textContent =
+    localStorage.getItem("theme") || "light";
+})();
+
+function themeToggle() {
+  let element = document.body;
+  element.classList.toggle("dark-mode");
+
+  let theme = localStorage.getItem("theme");
+  if (theme && theme === "dark-mode") {
+    localStorage.setItem("theme", "");
+  } else {
+    localStorage.setItem("theme", "dark-mode");
+  }
+
+  document.getElementById("theme").textContent = localStorage.getItem("theme");
 }

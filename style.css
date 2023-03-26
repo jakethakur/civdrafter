@@ -1,4 +1,4 @@
-/* fonts */
+/* fonts   #1d1e22  */
 @font-face {font-family: Penumbra; src: url('Penumbra-HalfSerif.ttf');} 
 @font-face {font-family: Open Sans; src: url('OpenSans-Regular.ttf');} 
 
@@ -27,4 +27,30 @@ body {
 	padding-right: 6px;
 	padding-left: 4px;
 	height: 25px;
+}
+
+:root {
+	--backgroundColor: #EEE;
+	--boxBackgroundColor: #FFF;
+	--highlightBackgroundColor: #E8E8E8;
+	--textColor: #000;
+	--linkColor: #00AA00;
+	--boxShadowColor: rgba(0,0,0, .15);
+	--transitionDuration: 400ms;
+	--spacing: 8px;
+}
+
+.dark-mode {
+	--backgroundColor: #1d1e22;
+	--boxBackgroundColor: #222;
+	--highlightBackgroundColor: #444;
+	--textColor: #FFF;
+	--linkColor: #00CC00;
+	--boxShadowColor: rgba(255,255,255, .1);
+}
+
+body {
+	background-color: var(--backgroundColor);
+	color: var(--textColor);
+	transition: color var(--transitionDuration), background-color var(--transitionDuration);
 }
