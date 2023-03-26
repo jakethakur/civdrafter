@@ -119,7 +119,7 @@ function updateBannedLeaders() {
 			let labelNode = document.createElement("label");
 			labelNode.htmlFor = "banCheckbox"+i;
 			labelNode.innerText = leaderString;
-			bannedLeadersEl.appendChild(labelNode); 
+			bannedLeadersEl.appendChild(labelNode);
 			// br
 			let breakNode = document.createElement("br");
 			bannedLeadersEl.appendChild(breakNode);
@@ -140,11 +140,11 @@ function playersSelected() {
 	for (let i = 1; i <= parseInt(document.getElementById("numberOfPlayers").value); i++) {
 		playerListEl.innerHTML += "<li id='player"+i+"'>Player "+i;
 		// dlc select dropdown
-		playerListEl.innerHTML += "<select id='dlcPlayer"+i+"'><option value='none'>No DLC Leaders</option><option value='Base Game DLC'>Platinum Edition Leaders</option><option value='Frontier Pass'>Platinum Edition + Frontier Pass Leaders</option><option value='Leader Pass'>Platinum Edition + Frontier Pass Leaders + Leader Pass</option></select><br>"
+		playerListEl.innerHTML += "<select id='dlcPlayer"+i+"'><option value='none'>No DLC Leaders</option><option value='Base Game DLC'>Platinum Edition Leaders</option><option value='Frontier Pass'>Platinum Edition + Frontier Pass Leaders</option><option value='Leader Pass'>Platinum Edition + Frontier Pass + Leader Pass Leaders</option></select><br>"
 		// player leader holder
 		playerListEl.innerHTML += "<div id='leadersPlayer"+i+"'></div></li><br><br>";
 	}
-	
+
 	// show draft button
 	document.getElementById("draftButton").hidden = false;
 }
@@ -152,20 +152,20 @@ function playersSelected() {
 // player dlc preferences have also been chosen - draft leaders
 function draft() {
 	let offeredLeaders = []; // list of leaders that have already been offered
-	
+
 	// find checked expansion for game
 	let expansion = selectedExpansion();
-	
+
 	// get banned leader checkboxes, as an array (not an HTMLCollection)
 	let bannedLeaderEls = [...document.getElementsByClassName("banCheckbox")];
-	
+
 	for (let player = 1; player <= parseInt(document.getElementById("numberOfPlayers").value); player++) {
 		// find dlc prefernce for player
 		let playerPaywall = document.getElementById("dlcPlayer"+player).value;
-		
+
 		// clear previously drafted leaders for player (if there were any)
 		document.getElementById("leadersPlayer"+player).innerHTML = "";
-		
+
 		for (let i = 1; i <= parseInt(document.getElementById("numberOfLeaders").value); i++) {
 			// filter to only include valid leaders
 			let leadersPool = leaders.filter(leader => {
@@ -176,7 +176,7 @@ function draft() {
 				if (leader.expansion == "Gathering Storm" && (expansion == "none" || expansion == "Rise and Fall")) {
 					return false;
 				}
-				
+
 				// check leader paywall
 				if (leader.paywall == "Base Game DLC" && playerPaywall == "none") {
 					return false;
@@ -187,21 +187,21 @@ function draft() {
 				if (leader.paywall == "Leader Pass" && playerPaywall != "Leader Pass") {
 					return false;
 				}
-				
+
 				// check if leader is banned
 				if (bannedLeaderEls.findIndex(leaderCheckbox => leaderCheckbox.value == leader.name+" ["+leader.civilization+"]" && leaderCheckbox.checked) != -1) {
 					return false;
 				}
-				
+
 				// check if leader has already been picked
 				// tbd extra settings :)
 				if (offeredLeaders.findIndex(offeredLeader => offeredLeader.name == leader.name || offeredLeader.civilization == leader.civilization) != -1) {
 					return false;
 				}
-				
+
 				return true;
 			});
-			
+
 			// pick random from leaders pool
 			let draftedLeader = leadersPool[getRandomInt(0, leadersPool.length-1)];
 			if (typeof draftedLeader == "undefined") {
@@ -223,7 +223,7 @@ function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// On page load set the theme.
+// on page load set the theme
 (function() {
   let onpageLoad = localStorage.getItem("theme") || "";
   let element = document.body;
